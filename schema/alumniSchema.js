@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const alumni_schema = mongoose.Schema({
-    userId: {String, required: true},
-    userName: {String, required: true},
-    email: {String, required: true},
-    password: {String, required: true},
-    mobileNumber: {Number, required: true},
+    userId: {type: String, required: true},
+    userName: {type: String, required: true},
+    email: {type: String, required: true},
+    password: {type: String, required: true},
+    mobileNumber: {type: Number, required: true},
     dob: Date,
     college: String,
     department: String,
@@ -14,6 +14,8 @@ const alumni_schema = mongoose.Schema({
     //intenship:
     //work:
     //profilePicture:
-    //post:
+    //post: [postId1, postId2]
     //friends: [userid1, userid2]
 })
+
+module.exports = mongoose.model('alumniDetails',alumni_schema);
