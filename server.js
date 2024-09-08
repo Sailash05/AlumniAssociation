@@ -5,7 +5,7 @@ const PORT = 4000;
 
 main().catch(err => console.log(err));
 
-app.use('/newAlumni',require('./datas/addAlumniScript.js'))
+app.use('/newAlumni',require('./datas/alumni/addAlumniScript.js'))
 app.use('/',require('./route/root'))
 
 async function main() {

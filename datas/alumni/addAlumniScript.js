@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const alumniDetails = require('../schema/alumniSchema');
+const alumniDetails = require('../../schema/alumniSchema');
 var a=0;
 
 router.route('/')
@@ -25,3 +25,5 @@ async function addAlumni(data) {
         mobileNumber: data.mobileNumber
     })
 }
+
+module.exports = router;
