@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const mongoose = require('mongoose');
 const PORT = 4000;
+
+app.use(express.static(path.join(__dirname,'public')))
 
 main().catch(err => console.log(err));
 
