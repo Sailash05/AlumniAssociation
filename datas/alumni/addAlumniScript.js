@@ -7,18 +7,19 @@ router.route('/')
 .post(async (req,res) => {
     a++;
     try{
+        console.log(req.body);
         await addAlumni(req.body);
         res.status(200).json({msg: 'Alumni successfully added'});
     }
     catch(error){
-        res.status(500).json({msg: 'error occures'});
+        res.status(500).json({msg: `${error.message}`});
     }
 })
 
 
 async function addAlumni(data) {
     await alumniDetails.create({
-        userId: `ALU${a.toString().padStarts(5,'0')}`,
+        userId: `ALU${a.toString().padStart(5, '0')}`,
         userName: data.userName,
         email: data.email,
         password: data.password,

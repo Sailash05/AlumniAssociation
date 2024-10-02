@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
-const PORT = 4000;
+const PORT = 5546;
 
-app.use(express.static(path.join(__dirname,'public')))
+app.use(express.static(path.join(__dirname,'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 main().catch(err => console.log(err));
 
@@ -16,7 +18,6 @@ app.use('/student/addStudent',require('./datas/student/addStudentScript.js'));
 app.use('/student/accessStudent',require('./datas/student/accessStudentScript.js'));
 app.use('/student/sendDetais',require('./datas/student/sendAlumniDetails.js'));
 
-app.use('/',require('./route/root'));
 
 async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/AlumniAssociation');

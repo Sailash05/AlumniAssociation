@@ -4,6 +4,7 @@ const alumniDetails = require('../../schema/alumniSchema.js');
 
 router.route('/')
 .get(async (req,res) => {
+    console.log("received");
     try{
         const dbData = await alumniDetails.findOne({
             userName: req.body.userName,
